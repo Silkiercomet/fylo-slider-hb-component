@@ -10,7 +10,7 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
+    .attribution { font-size: 11px; text-align: center;margin-top: 2rem; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
@@ -32,17 +32,22 @@
       <div class="right">
         <div class="contenedor">
           <span class="header">
-            You’ve used 815 GB of your storage
+            You’ve used <span id="white">815 GB</span>  of your storage
           </span>
           <div class="slidecontainer">
-            <input type="range" min="10" max="1000" value="10" class="slider" id="myRange">
+            <input type="range" min="1" max="10" value="7" class="slider" id="myRange">
+            
           </div>
           <div class="data">
             <p>0 GB</p>
             <p>1000 GB</p>
           </div>
           <div class="floater">
-            <p>185 GB Left</p>
+            <div class="contenedor-f">
+            <p> <span>185</span>  GB Left</p>
+            <div class="arrow-right"></div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -54,10 +59,11 @@
   
   
   
-  
+
+
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Luis Colina</a>.
   </div>
 </body>
 </html>
