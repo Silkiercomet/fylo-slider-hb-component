@@ -94,11 +94,10 @@ body{
   color: hsl(229, 7%, 55%);
   font-weight: 700;
   text-align: center;
-  border: 2px solid black;
   border-radius: 10px;
   position: absolute;
   top: -50px;
-  right: 30px;
+  right: 35px;
   
 }
 .floater .contenedor-f p span{
@@ -118,7 +117,7 @@ body{
     border-right: 30px solid white;
     position: absolute;
     right: 0;
-    top: 15px;
+    top: 25px;
 }
 #white{
   color: white;
@@ -195,3 +194,40 @@ input[type=range]::-webkit-slider-thumb {
   
 
 /* slider */
+
+/* media queries */
+@media (max-width:700px){
+  body{
+    background-image: url(images/bg-mobile.png);
+    background-position: center;
+    background-size: cover;
+
+  }
+  .wrapper .contenedor{
+    flex-direction: column;
+    width: 100%;
+  }
+  .right {
+    min-width: 100%;
+    padding: 0 
+  }
+  .left{
+    width: 100%;
+    
+  }
+  .data{
+    padding-bottom: 2rem;
+  }
+  .floater{
+    width: 180px;
+    height: 80px;
+    border: 2px solid transparent;
+    top: 73%;
+    right: 0;
+    left: 70px;
+    
+  }
+  .arrow-right{
+    display: none;
+  }
+}
