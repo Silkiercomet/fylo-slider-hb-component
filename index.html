@@ -35,7 +35,7 @@
             You’ve used <span id="white">815 GB</span>  of your storage
           </span>
           <div class="slidecontainer">
-            <input type="range" min="1" max="10" value="7" class="slider" id="myRange">
+            <input type="range" min="1" max="10" value="7" class='styled-slider slider-progress' id="myRange">
             
           </div>
           <div class="data">
@@ -60,7 +60,14 @@
   
   
 
-
+  <script>
+    for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+  e.style.setProperty('--value', e.value);
+  e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+  e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+  e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+}
+  </script>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Luis Colina</a>.
