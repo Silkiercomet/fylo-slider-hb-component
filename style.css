@@ -134,64 +134,110 @@ body{
   }
   
   /* The slider itself */
-  input[type=range] {
-    margin: auto;
-    outline: none;
-    padding: 0;
-    width: 100%;
-    height: 15px;
-    background-color: hsl(229, 57%, 11%);
-    background-image: linear-gradient(to right, hsl(6, 100%, 80%),  hsl(335, 100%, 65%));
-    background-size: 67.1% 100%;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    cursor: pointer;
-    -webkit-appearance: none;
 
+input[type=range].styled-slider {
+  width: 100%;
+  height: 1.3em;
+  -webkit-appearance: none;
+  background-color: hsl(228, 56%, 26%);
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-    box-shadow: none;
-    border: none;
-    background: transparent;
-    -webkit-appearance: none;
+/*progress support*/
+input[type=range].styled-slider.slider-progress {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--value) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 0.8em + var(--ratio) * (100% - 0.8em));
 }
 
-
-input[type=range]::-webkit-slider-thumb {
-  height: 14px;
-  width: 14px;
-    border: 0;
-    background: #fff;
-    border: 1px solid #777;
-    border-radius: 8px;
-    box-shadow: 0 0 1px 0px rgba(0,0,0,0.1);
-    -webkit-appearance: none;
+input[type=range].styled-slider:focus {
+  outline: none;
 }
-  
-  
-  /* Mouse-over effects */
 
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 14px; /* Set a specific slider handle width */
-    height: 14px; /* Slider handle height */
-    background-color: white;/* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 50%;
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 10px; /* Set a specific slider handle width */
-    height: 10px; /* Slider handle height */
-    background: white; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-    border-radius: 50%;
-  }
-  
+/*webkit*/
+input[type=range].styled-slider::-webkit-slider-thumb {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 1em;
+  background: white;
+  border: none;
+  box-shadow: 0 0 2px black;
+  margin-top: calc(1em * 0.5 - 0.8em * 0.5);
+  -webkit-appearance: none;
+}
+
+input[type=range].styled-slider::-webkit-slider-runnable-track {
+  height: 1em;
+  border-radius: 0.5em;
+  background: hsl(229, 57%, 11%);
+  border: none;
+  box-shadow: none;
+}
+input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%)) 0/var(--sx) 100% no-repeat, hsl(229, 57%, 11%);
+}
+
+/*mozilla*/
+input[type=range].styled-slider::-moz-range-thumb {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 1em;
+  background: white;
+  border: none;
+  box-shadow: 0 0 2px black;
+}
+
+input[type=range].styled-slider::-moz-range-track {
+  height: 1em;
+  border-radius: 0.5em;
+  background: hsl(229, 57%, 11%);
+  border: none;
+  box-shadow: none;
+}
+
+input[type=range].styled-slider.slider-progress::-moz-range-track {
+  background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%)) 0/var(--sx) 100% no-repeat, hsl(229, 57%, 11%);
+}
+
+/*ms*/
+input[type=range].styled-slider::-ms-fill-upper {
+  background: transparent;
+  border-color: transparent;
+}
+
+input[type=range].styled-slider::-ms-fill-lower {
+  background: transparent;
+  border-color: transparent;
+}
+
+input[type=range].styled-slider::-ms-thumb {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 1em;
+  background: white;
+  border: none;
+  box-shadow: 0 0 2px black;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+input[type=range].styled-slider::-ms-track {
+  height: 1em;
+  border-radius: 0.5em;
+  background: hsl(229, 57%, 11%);
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+input[type=range].styled-slider.slider-progress::-ms-fill-lower {
+  height: 1em;
+  border-radius: 0.5em 0 0 0.5em;
+  margin: -undefined 0 -undefined -undefined;
+  background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  border: none;
+  border-right-width: 0;
+}
+
 
 /* slider */
 
